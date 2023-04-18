@@ -14,10 +14,11 @@ public class CV_Principal {
 	private V_ConsultarCliente vConsultar;
 	private V_ActualizarCliente vActualizar;
 	private V_GuardarVideos vGuardarVideo;
-//	private V_EliminarVideos vEliminar;
 	private V_ConsultarVideo vConsultarVi;
 	private V_ActualizarVideo vActualizarVi;
+	private V_EliminarVideo vEliminarVi;
 	private Cliente cliente;
+	private Video video;
 
 	/**
 	 * Constructor encargado de poner a la escucha los botones Guardar, Consultar,
@@ -40,7 +41,7 @@ public class CV_Principal {
 		vistaP.getBtnGuardarVideo().addActionListener(btnGuardarVideo);
 		vistaP.getBtnConsultaVideo().addActionListener(btnConsultarVideo);
 		vistaP.getBtnActualizarVideo().addActionListener(btnActualizarVi);
-//		vistaP.getBtnEliminarVideo().addActionListener(btnEliminarVideo);
+		vistaP.getBtnEliminarVideo().addActionListener(btnEliminarVideo);
 	}
 
 	//############ Metodos Botones Cliente ###############################  
@@ -152,19 +153,19 @@ public class CV_Principal {
 		};
 
 		// Hace que se abra la vista eliminar
-//		ActionListener btnEliminarCli = new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				// se crea el objeto cEliminar al pulsar el boton Eliminar
-//				vEliminar = new V_EliminarCliente();
-//				// se crea el objeto cliente
-//				cliente = new Cliente();
-//				// se crea el onjeto cVistaElimnar con los parametros vElimianr, clienteDAO y
-//				// cliente
-//				CV_EliminarCliente cVistaEliminar = new CV_EliminarCliente(vEliminar, clienteDAO, cliente);
-//				// Se hace visible la vista Eliminar
-//				vEliminar.setVisible(true);
-//			}
-//		};
+		ActionListener btnEliminarVideo = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// se crea el objeto cEliminar al pulsar el boton Eliminar
+				vEliminarVi = new V_EliminarVideo();
+				// se crea el objeto cliente
+				video = new Video();
+				// se crea el onjeto cVistaElimnar con los parametros vEliminar, VideoDAO y
+				// video
+				CV_EliminarVideo cVistaEliminar = new CV_EliminarVideo(vEliminarVi, videoDAO, video);
+				// Se hace visible la vista Eliminar
+				vEliminarVi.setVisible(true);
+			}
+		};
 
 }

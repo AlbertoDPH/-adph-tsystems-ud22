@@ -39,8 +39,14 @@ public class CV_ActualizarVideo {
 		public void actionPerformed(ActionEvent e) {
 
 			// Obtenemos los datos del video
+			video.setId(Integer.parseInt(vistaActua.getTxtId().getText()));
 			video.setTitulo(vistaActua.getTxtTitulo().getText());
 			video.setDirector(vistaActua.getTxtDirector().getText());
+			
+			video.setCli_id(Integer.parseInt(vistaActua.getTxtId().getText()));
+			
+			// Guardamos los datos del video
+			videoDAO.actualizar(video);
 
 			// Cerrar la ventana despues de guardar los cambios
 			vistaActua.dispose();

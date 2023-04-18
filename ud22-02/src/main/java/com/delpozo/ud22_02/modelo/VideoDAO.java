@@ -73,12 +73,14 @@ public class VideoDAO {
 			PreparedStatement stmt = conexion.getConexion().prepareStatement(sql);
 			// se guardan los valores en los parametros de la consulta que se obtienen del
 			// video
-			stmt.setInt(1, video.getId());
-			stmt.setString(2, video.getTitulo());
-			stmt.setString(3, video.getDirector());
-			stmt.setInt(4, video.getCli_id());
-			stmt.setInt(5,video.getId());
+			stmt.setString(1, video.getTitulo());
+			stmt.setString(2, video.getDirector());
+			stmt.setInt(3, video.getCli_id());
+			stmt.setInt(4, video.getId());
 			
+			 // Ejecutamos al consulta
+//	        int filasAfectadas = stmt.executeUpdate();
+//	        System.out.println("Filas afectadas: " + filasAfectadas);
 
 			// Ejecutamos al consulta
 			stmt.executeUpdate();
